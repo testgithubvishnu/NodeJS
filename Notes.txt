@@ -1,0 +1,7 @@
+Intially javacrip only use d for Dom manipulation
+was unable to run outside the browser
+
+in 2009- ryan dahl
+NodeJs - Javascript Runtime
+int crates runtime environment for Javascript to run on pc
+
