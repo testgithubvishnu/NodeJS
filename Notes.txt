@@ -35,8 +35,63 @@ fs.unlinkSync(parameter);
 <API DEVELOPMENT FUNDAMENTALS AND HTTP MODULE>
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+API- Application Programming Interface
+-Any programme that takes input doing some functionality and gives output.
+-collection of defferent functionality
 
+front-end(II/GUI/Design)  --  >  API server    -->         backend(database)
+(html,css,js)            (java,js,python,php)  (mongodb,SQL)
 
+Server :: can be computer or programme that continously running and job is to provide services (respond) when client asks (request).
+-----------------------------------
+            Request                |
+            ------->               |
+Front-end              Back-end    |
+ (client)             (API server) |
+           <-------                |
+           Response                | 
+------------------------------------
+
+# components of request:
+1] Base Address / IP Address  128.98.8.1 of server
+2] Routes / Paths (functionality)   
+     Ip Address + route   (URL) Uniform Resourse Locater
+     ex.. 128.98.8.1/about?id=1
+     ?id=1 => url parameter/variable/query
+              - Way of sending data through url
+
+3] CRUD operations (create,Read,update,delete) 
+4] Method [GET,POST,PUT,PATCH,DELETE,OPTIONS] api end-points
+5] Data (Response)
+6] Headers (way of sending extra information from client to server)
+
+# Components of response:
+1] Data
+2] Headers
+3] Status code :A number applied to every different kind response that occures.
+ Response succesfull - 200
+ server unable to find - 404
+
+Port numbers
+
+127.0.0.1/ lcoacalhost : local server that is running on any computer
+-IP Address  of local server is fixed
+- We cant remember Ip address of any server that's why they have domain name ex.. www.google.com
+
+Every server has different port number
+to identify whether it is application or database server etc.
+
+# HTTP Module:
+==============
+-Used to create our own custom server
+-Postman -> it is an platform for developers builing and using API.
+-Thunder client -> vs code extension
+     -alternate to postman
+
+===============================================================================
+
+# UNDERSTANDING GET AND POST IN HTTP MODULE:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 
