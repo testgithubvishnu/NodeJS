@@ -69,15 +69,16 @@ Front-end              Back-end    |
 1] Data
 2] Headers
 3] Status code :A number applied to every different kind response that occures.
- Response succesfull - 200
+ Response successfull  - 200
  server unable to find - 404
 
-Port numbers
 
 127.0.0.1/ lcoacalhost : local server that is running on any computer
 -IP Address  of local server is fixed
 - We cant remember Ip address of any server that's why they have domain name ex.. www.google.com
 
+Port numbers:
+============
 Every server has different port number
 to identify whether it is application or database server etc.
 
@@ -92,7 +93,11 @@ to identify whether it is application or database server etc.
 
 # UNDERSTANDING GET AND POST IN HTTP MODULE:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+A user can fetch all data -> GET /products Method used
+Fetch single  data fetch -> GET/ products?id=1;                     
 
 
-
+npm i -g nodemon   -> Tool used to run project       
+                      Just like a Bot
+-Automatically reruns the project after saving
 
