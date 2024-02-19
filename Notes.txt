@@ -1,7 +1,43 @@
-Intially javacrip only use d for Dom manipulation
+<FUNDAMENTALS AND FS MODULE: NODE JS>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+JS- multipurpose programming language
+
+Intially javacript only used for Dom manipulation
 was unable to run outside the browser
 
 in 2009- ryan dahl
 NodeJs - Javascript Runtime
-int crates runtime environment for Javascript to run on pc
+-V8 engine used to run javacript
+int creates runtime environment for Javascript to run on pc
+It can access: OS,files,Network
+
+# It can be used for:
+Machine Learning
+API development/server-side apps
+game development
+
+functions -> modules -> Package/library
+ex.. fs module-> file system- read and write files
+
+===================================
+# File Handling:
+ReadFileSync
+ReadFile
+
+writefileSync
+writeFile
+appendFile
+
+to delete file:
+fs.unlinkSync(parameter);
+
+===============================================================
+<API DEVELOPMENT FUNDAMENTALS AND HTTP MODULE>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+
+
+
 
