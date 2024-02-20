@@ -62,11 +62,11 @@ Front-end              Back-end    |
 
 3] CRUD operations (create,Read,update,delete) 
 4] Method [GET,POST,PUT,PATCH,DELETE,OPTIONS] api end-points
-5] Data (Response)
+5] Data through request body
 6] Headers (way of sending extra information from client to server)
 
 # Components of response:
-1] Data
+1] Data  (Response)
 2] Headers
 3] Status code :A number applied to every different kind response that occures.
  Response successfull  - 200
@@ -93,11 +93,27 @@ to identify whether it is application or database server etc.
 
 # UNDERSTANDING GET AND POST IN HTTP MODULE:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-A user can fetch all data -> GET /products Method used
-Fetch single  data fetch -> GET/ products?id=1;                     
-
+        END POINTS:                               USE
++ A user can fetch all data -> GET /products Method used
++ Fetch single  data fetch -> GET/ products?id=1;                     
++ create a new product by sending data through request  -> POST /products
 
 npm i -g nodemon   -> Tool used to run project       
                       Just like a Bot
 -Automatically reruns the project after saving
 
+We are using url module to parse the string.
+- After '?' all are parameter
+
+convert json string to array of object:
+JSON.parse(product);
+
+convert array of object to json string:
+JSON.stringify(product);
+
+Response should be string only.
+
+In POST method a huge amount of data is send by request but this data will be send chunk by chunk.
+
+-usen JSON body to send data in Thunder Client
+-Takes more time to send data as request
