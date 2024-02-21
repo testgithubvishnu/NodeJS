@@ -98,9 +98,12 @@ to identify whether it is application or database server etc.
 + Fetch single  data fetch -> GET/ products?id=1;                     
 + create a new product by sending data through request  -> POST /products
 
++To delete product based on id -> DELETE /products?id=2;
+
+
 npm i -g nodemon   -> Tool used to run project       
                       Just like a Bot
--Automatically reruns the project after saving
+-Automatically reruns the project after saving (-g globally)
 
 We are using url module to parse the string.
 - After '?' all are parameter
