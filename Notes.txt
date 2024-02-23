@@ -96,10 +96,11 @@ to identify whether it is application or database server etc.
         END POINTS:                               USE
 + A user can fetch all data -> GET /products Method used
 + Fetch single  data fetch -> GET/ products?id=1;                     
-+ create a new product by sending data through request  -> POST /products
++ create a new product by sending data through request  -> POST /products  |data in request body
 
 +To delete product based on id -> DELETE /products?id=2;
 
++ To update the product based on id -> PUT  /products?id=3   |data in request body
 
 npm i -g nodemon   -> Tool used to run project       
                       Just like a Bot
@@ -120,3 +121,35 @@ In POST method a huge amount of data is send by request but this data will be se
 
 -usen JSON body to send data in Thunder Client
 -Takes more time to send data as request
+
+# Testing client-> Thunder API ,Browser,Postman etc.
+-they have direct access to any local as well as global API server
+-They have same orihin
+
+
+fronted-server/app -> fetch in html file
+-can not directly access the api server due to security
+-they are two differ origin
+
+# CORS Policy-> Access-Control-Allow-Origin
+This header indicates wheteher the response can be shared with requesting code from the given origin.
+
+-this header should include on api server it allows access two differ origin.
+
+================================================================
+Working With MongoDB and Project Structuring:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+connecting programme to database:
+
+front-end server        API server  Realtime-Database
+
+
+
+
+
+
+
+
+EXPRESS JS API DEVELOPMENT:
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+library or module build using javascript
