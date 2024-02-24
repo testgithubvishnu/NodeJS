@@ -139,14 +139,56 @@ This header indicates wheteher the response can be shared with requesting code f
 ================================================================
 Working With MongoDB and Project Structuring:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-connecting programme to database:
+connecting javascript programme to mongodb server database:
 
 front-end server        API server  Realtime-Database
+1] node js -> database(MongoDB)
 
+Node js -> mongoose -> Mongo Driver -> MongoDB
 
+mongoose -> javascript Package
+gives us functions help to connect mongodb server to and perform CRUD opearations with database.
 
+-help to convert json to javacript object
+-(ODM) object data modeling tool
+-functions to perform all queries
 
+-Before any prject npm init makeprofessionl structure of your project
+-that contains info about your project
 
+package.json:
+{
+  "name": "dbwork",
+  "version": "1.0.0",
+  "description": "database connection project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Akshata Manale",
+  "license": "ISC"
+}
+
+To install mongoose:
+-npm i mongoose
+
+-Mongoose is an ODM (Object database Modelling) library for Node.js that defines objects with a schema mapped to a MongoDB document. 
+
+-A Mongoose Schema defines the structure and property of the document in the MongoDB collection. This Schema is a way to define expected properties and values along with the constraints and indexes.
+
+mongoose dependency will be added to your project
+-Whenever we are sharing our project with someone do not send node modules files just send package.json and package-lock.json , they will install npm theier own.
+-It will be bulky to send
+
+npm i command checks package-lock.json and install all the dependecy in their project.
+
+Model: connection between programme and collections
+
+When facing problem:
+MongooseError: Operation `users.insertOne()` buffering timed out after 10000ms
+->  replace localhost to 127.0.0.1
+
+Validate schema:
 
 
 

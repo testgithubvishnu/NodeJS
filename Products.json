@@ -1,1 +1,22 @@
-[{"id":2,"name":"sumit chaudhary","city":"Shirur"},{"id":3,"name":"Shubham ghante","city":"Latur"}]
+[
+    {
+        "id": 1,
+        "name": "mahesh",
+        "city": "Nilanga"
+    },
+    {
+        "id": 2,
+        "name": "sumit chaudhary",
+        "city": "Shirur"
+    },
+    {
+        "id": 3,
+        "name": "Shubham ghante",
+        "city": "Latur"
+    },
+    {
+        "id": 22,
+        "name": "sonalika",
+        "city": "Bombay"
+    }
+]
