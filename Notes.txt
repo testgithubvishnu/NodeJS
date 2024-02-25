@@ -195,3 +195,5 @@ Validate schema:
 EXPRESS JS API DEVELOPMENT:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 library or module build using javascript
+Easy to create API
+-Internally uses http module
