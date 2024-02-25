@@ -197,3 +197,16 @@ EXPRESS JS API DEVELOPMENT:
 library or module build using javascript
 Easy to create API
 -Internally uses http module
+
+send() -> automatically converts js object to json object
+
+Front-end server/testing client -> middleware -> backend-server
+
+# MiddleWare:
+============
+-It is a function exist  between after actually request comes and before reaches to the end point.
+-To check request,check data,format data,security check ,error handling etc.
+
+
+AUTHENTICATING USING JWT TOKEN:NODE JS
+======================================
