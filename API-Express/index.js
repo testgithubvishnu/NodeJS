@@ -3,6 +3,9 @@ const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
+// Middleware  for each end-point
+//app.use(middleware);
+
 // app.get(path , functionality)
 
 app.get("/products", (req, res) => {
@@ -20,11 +23,13 @@ app.get("/about", (req, res) => {
   res.send({ message: "About us" });
 });
 
+// Middlewares in node js:
 app.get("/testing/:id", middleware, (req, res) => {
   console.log("main endpoint");
   res.send({ message: "Testing details " });
 });
 
+// Middleware function:
 function middleware(req, res, next) {
   if (req.params.id < 10) {
     res.send({ message: "You are blocked" });
