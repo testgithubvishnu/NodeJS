@@ -3,6 +3,9 @@ const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
+// Middleware to extract data from request:
+app.use(express.json());
+
 // Middleware  for each end-point
 //app.use(middleware);
 
@@ -12,6 +15,23 @@ app.get("/products", (req, res) => {
   console.log("Get request coming");
   res.send({ message: "Get request success" });
 });
+app.post("/products", (req, res) => {
+  console.log(req.body);
+  res.send({ message: "This is product route" });
+});
+
+// No need of this given middleware function:
+// express.json(req, res, next);
+// {
+//   let product = "";
+//   req.on("data", (chunk) => {
+//     product += chunk;
+//   });
+//   req.on("end", () => {
+//     req.body = JSON.parse(product);
+//     next();
+//   });
+// }
 
 app.get("/users/:id", (req, res) => {
   console.log(req.params.id);

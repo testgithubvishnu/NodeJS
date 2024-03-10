@@ -225,6 +225,16 @@ app.use(middleware_name);
 
 -Maximum length of URL in Browser's address bar: 2038 characters 
 
+# post method:
+we use middleware function:
+app.use(express.json());
+
+- when request comes it fisrt come to middleware then it goes int post method.
+-this middleware access the request 
+-extract the data and format it.
+-take it chunk by chunk and convert into javascript object,finally create body
+
+
 - creating project:
 1.npm init
 2.npm i mongoose
