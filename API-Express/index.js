@@ -3,6 +3,29 @@ const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
+//database connection:
+mongoose
+  .connect("mongodb://localhost:27017/mongoTutorial")
+  .then(() => {
+    console.log("database connection is successful!");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+//schema for products:
+const productSchema = mongoose.Schema({
+  name: {
+    type: String,
+    required: [true, "Name is manadatory"],
+  },
+  price: {
+    type: Number,
+    required: [true, "Price is manadatory"],
+    min: 1,
+  },
+});
+
 // Middleware to extract data from request:
 app.use(express.json());
 
@@ -15,12 +38,16 @@ app.get("/products", (req, res) => {
   console.log("Get request coming");
   res.send({ message: "Get request success" });
 });
+
+// Insert the data:
 app.post("/products", (req, res) => {
   console.log(req.body);
   res.send({ message: "This is product route" });
 });
 
 // No need of this given middleware function:
+// using middleware: app.use(express.json());
+
 // express.json(req, res, next);
 // {
 //   let product = "";
@@ -33,6 +60,20 @@ app.post("/products", (req, res) => {
 //   });
 // }
 
+// Delete the data:
+app.delete("/products/:id", (req, res) => {
+  console.log(req.params.id);
+  res.send({ message: "This is product deleted" });
+});
+
+//Update the data:
+app.put("/products/:id", (req, res) => {
+  console.log(req.params.id);
+  console.log(req.body);
+  res.send({ message: "Put successful!" });
+});
+
+// Get the data:
 app.get("/users/:id", (req, res) => {
   console.log(req.params.id);
   res.send({ message: "users details " });
