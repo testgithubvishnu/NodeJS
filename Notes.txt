@@ -245,6 +245,59 @@ app.use(express.json());
 
 
 
-
 AUTHENTICATING USING JWT TOKEN:NODE JS
 ======================================
+JWT - javascript web token
+How to make your apis secure?
+To secure apis from unauthorized access we use JWT
+To make api public/private or specific to some user
+
+# Authentication:
+Letting someone who you are
+Check if a user Valid
+
+1] Register to API
+2] Access the end-points
+
+Encryption:bycryptjs used to encrypt password
+
+
+Hashing vs encryption:
+ecncryption is scrambling plaintext into unredable ciphertext , which you can decrypt with key.While hasing turns plain text into a unique code,which can't be reverted into readable form.
+
+1]Monolethic architecture:-Single server for frontend and backend 
+
+2]Microservices architecture:-Different servers for frontend and backend 
+-Same backend for multiple frontend and vice-verca
+for ex.. facebook  can be opened in instagram application and vice-verca
+
+Google backend for facebook frontend and instagram fronted can use google backend
+
+-Only thing is allow others to use your API
+
+There are multiple front-ends that send request to server
+After sending request connection get closes
+to remember which frontend has send request
+That's why we need JWT Token for later access
+
+when someon
+- login and having correct credential then not only 
+send response but also uniquely generated JWT token
+and that to frontend service.
+
+- Next time for any request send that token and for any access check that token before end-point .
+
+We use middleware to check token before reaching
+ to the end-point.
+
+ jwt creates:
+ 1] Header - info about token
+ 2] Pre-load - data of token
+ 3] Secret-Key -
+
+ we need jsonwebtoken package to create token
+ int the header of request we passing token
+      type               value
+ Authentication    Bearer Token
+
+
