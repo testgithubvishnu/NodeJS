@@ -31,7 +31,7 @@ appendFile
 to delete file:
 fs.unlinkSync(parameter);
 
-===============================================================
+===============================================================================================================================================
 <API DEVELOPMENT FUNDAMENTALS AND HTTP MODULE>
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -89,7 +89,7 @@ to identify whether it is application or database server etc.
 -Thunder client -> vs code extension
      -alternate to postman
 
-===============================================================================
+==================================================================================================================================================
 
 # UNDERSTANDING GET AND POST IN HTTP MODULE:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -104,6 +104,7 @@ to identify whether it is application or database server etc.
 
 npm i -g nodemon   -> Tool used to run project       
                       Just like a Bot
+
 -Automatically reruns the project after saving (-g globally)
 
 We are using url module to parse the string.
@@ -124,7 +125,7 @@ In POST method a huge amount of data is send by request but this data will be se
 
 # Testing client-> Thunder API ,Browser,Postman etc.
 -they have direct access to any local as well as global API server
--They have same orihin
+-They have same origin
 
 
 fronted-server/app -> fetch in html file
@@ -136,7 +137,7 @@ This header indicates wheteher the response can be shared with requesting code f
 
 -this header should include on api server it allows access two differ origin.
 
-================================================================
+================================================================================================================================================
 Working With MongoDB and Project Structuring:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 connecting javascript programme to mongodb server database:
@@ -153,7 +154,7 @@ gives us functions help to connect mongodb server to and perform CRUD opearation
 -(ODM) object data modeling tool
 -functions to perform all queries
 
--Before any prject npm init make professionl structure of your project
+-Before any project npm init make professionl structure of your project
 -that contains info about your project
 
 package.json:
@@ -168,6 +169,8 @@ package.json:
   "author": "Akshata Manale",
   "license": "ISC"
 }
+Start project:
+npm init
 
 To install mongoose:
 -npm i mongoose
@@ -177,6 +180,9 @@ To install mongoose:
 -A Mongoose Schema defines the structure and property of the document in the MongoDB collection. This Schema is a way to define expected properties and values along with the constraints and indexes.
 
 mongoose dependency will be added to your project
+
+IMPORTANT:
+==========
 -Whenever we are sharing our project with someone do not send node modules files just send package.json and package-lock.json , they will install npm theier own.
 -It will be bulky to send
 
@@ -190,7 +196,7 @@ MongooseError: Operation `users.insertOne()` buffering timed out after 10000ms
 
 Validate schema:
 
-
+====================================================================================================================================================
 
 EXPRESS JS API DEVELOPMENT:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -243,7 +249,7 @@ app.use(express.json());
 2.npm i mongoose
 3.npm i
 
-
+==============================================================================================================================================================
 
 AUTHENTICATING USING JWT TOKEN:NODE JS
 ======================================
@@ -259,11 +265,46 @@ Check if a user Valid
 1] Register to API
 2] Access the end-points
 
-Encryption:bycryptjs used to encrypt password
+Encryption:bycryptjs used to encrypt password:
 
+#Hashing" a password refers to taking a plain text password and putting it through a hash algorithm. 
+The hash algorithm takes in a string of any size and outputs a fixed-length string.
+
+ hash algorithms always produce the same result for a specific password, they are predictable. 
+If you only hash the password, a hacker can figure out the original password. Hashing is not enough.
+
+# Bcrypt uses the Blowfish cypher:
+Random bytes get added to the password, and together the salted hash meets security recommendations on length and unpredictability.
+
+#Salting a password
+A salt is a random string. By hashing a plain text password plus a salt, the hash algorithm’s output is no longer predictable. 
+The same password will no longer yield the same hash. The salt gets automatically included with the hash, so you do not need to store it in a database.
+
+Password
+Salt
+Callback of error and the returned hash
+
+bcrypt.genSalt(saltRounds, function(err, salt) {
+  bcrypt.hash(password, salt, function(err, hash) {
+  // returns hash
+  console.log(hash);
+  });
+});
+
+# Compare passwords:
+We pass bcrypt.compare() these parameters:
+
+The password we are comparing
+The hash that is stored in the database
+Callback of error and the result: If the password matches the hash, the result equals true. If it is not a match, the result equals false.
+
+bcrypt.compare(password, hash, function(err, result) {
+  // returns result
+});
 
 Hashing vs encryption:
-ecncryption is scrambling plaintext into unredable ciphertext , which you can decrypt with key.While hasing turns plain text into a unique code,which can't be reverted into readable form.
+ecncryption is scrambling plaintext into unredable ciphertext , which you can decrypt with key.
+While hasing turns plain text into a unique code,which can't be reverted into readable form.
 
 1]Monolethic architecture:-Single server for frontend and backend 
 
@@ -281,8 +322,7 @@ to remember which frontend has send request
 That's why we need JWT Token for later access
 
 when someon
-- login and having correct credential then not only 
-send response but also uniquely generated JWT token
+- login and having correct credential then not only send response but also uniquely generated JWT token
 and that to frontend service.
 
 - Next time for any request send that token and for any access check that token before end-point .
@@ -293,11 +333,41 @@ We use middleware to check token before reaching
  jwt creates:
  1] Header - info about token
  2] Pre-load - data of token
- 3] Secret-Key -
+ 3] Secret-Key -Any string
 
- we need jsonwebtoken package to create token
- int the header of request we passing token
+In its compact form, JSON Web Tokens consist of three parts separated by dots (.), which are:
+
+A JWT contains three parts:
+
+1] Header: Consists of two parts:
+The signing algorithm that’s being used.
+The type of token, which, in this case, is mostly “JWT”.
+
+2] Payload: The payload contains the claims or the JSON object.
+
+3] Signature: A string that is generated via a cryptographic algorithm that can be used to verify the integrity of the JSON payload.
+
+
+ # Whenever the user wants to access a protected route or resource, the user agent should send the JWT,
+ typically in the Authorization header using the Bearer schema. The content of the header should look like the following:
+
+Authorization: Bearer <token>
+
+ we need jsonwebtoken package to create token into the header of request we passing token
       type               value
  Authentication    Bearer Token
 
+============================================
+// npm (Node Package Manager):
+sematic versioning:
+"express":^4.18.1
+
+x: first digit is major version
+y: second digit is minor version
+z: third digit is patch version
+^: means changes th minor or patch version
+~: means changes patch version only
+
+npm uninstall package_name
+npm list
 

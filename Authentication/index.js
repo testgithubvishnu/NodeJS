@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 app.use(express.json());
 const bcry = require("bcryptjs");
-const JWT = require("jsonwebtoken");
+const jwt = require("jsonwebtoken");
 // database connection:
 mongoose
   .connect("mongodb://127.0.0.1:27017/authenticate")
@@ -61,18 +61,18 @@ app.post("/register", (req, res) => {
   });
 });
 
-app.post("/Login", verifyToken, (req, res) => {
+app.post("/Login", (req, res) => {
   let userCred = req.body;
   userModel
     .findOne({ email: userCred.email })
     .then((user) => {
       if (user != null) {
         bcry.compare(userCred.password, user.password, (err, result) => {
-          if (result == true) {
+          if (result === true) {
             // generate token and send it back
-            JWT.sign({ email: userCred.email }, "akshata", (err, token) => {
+            jwt.sign({ email: userCred.email }, "akshata", (err, token) => {
               if (!err) {
-                res.send({ token: token });
+                res.send({ toke: token });
               } else {
                 res.send({
                   message:
@@ -80,14 +80,12 @@ app.post("/Login", verifyToken, (req, res) => {
                 });
               }
             });
-
-            res.send({ message: "Logged in successfully" });
           } else {
             res.send({ message: "Incorrect password" });
           }
         });
       } else {
-        res.send({ message: "Wrong email" });
+        res.send({ message: "Wrong email No user found" });
       }
     })
     .catch((err) => {
@@ -95,8 +93,22 @@ app.post("/Login", verifyToken, (req, res) => {
     });
 });
 
+app.get("/getdata", verifyToken, (req, res) => {
+  res.send({ message: "I am a begineer in coding" });
+});
+
 function verifyToken(req, res, next) {
-  console.log(req.header.authorization);
+  // let token = req.headers.authorization.split(" ")[1];
+
+  console.log(req.headers);
+  // jwt.verify(token, "akshata", (err, data) => {
+  //   if (!err) {
+  //     console.log(data);
+  //     next();
+  //   } else {
+  //     res.status(401).send({ message: "Invalid Token please login again" });
+  //   }
+  // });
 }
 
 app.listen(8000, () => {
